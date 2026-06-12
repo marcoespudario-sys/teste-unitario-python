@@ -38,11 +38,11 @@ class TestCalculadora(unittest.TestCase):
         with self.assertRaises(ZeroDivisionError):
             dividir(10, 0)
 
-    def test_potencia(self):
-        """Testa a função de potência com diferentes bases e expoentes."""
-        self.assertEqual(potencia(2, 3), 8)
-        self.assertEqual(potencia(5, 0), 1)
-        self.assertEqual(potencia(10, 2), 100)
+   # def test_potencia(self):
+       # """Testa a função de potência com diferentes bases e expoentes."""
+       # self.assertEqual(potencia(2, 3), 8)
+      #  self.assertEqual(potencia(5, 0), 1)
+       # self.assertEqual(potencia(10, 2), 100)
 
     def test_calcular_media(self):
         """Testa a função de calcular média com diferentes cenários de listas."""
@@ -58,6 +58,33 @@ class TestCalculadora(unittest.TestCase):
         # 4. Lista vazia (deve gerar um erro ValueError)
         with self.assertRaises(ValueError):
             calcular_media([])
+
+##Teste gerado pela IA: função escolhida foi potencia
+
+def test_potencia_caso_padrao(self):
+        """Cenário 1: Testa a lógica básica da exponenciação com inteiros positivos."""
+        self.assertEqual(potencia(2, 3), 8)
+
+    def test_potencia_base_zero_expoente_positivo(self):
+        """Cenário 2: Testa o comportamento da base sendo zero com expoente positivo."""
+        self.assertEqual(potencia(0, 5), 0)
+
+    def test_potencia_expoente_zero(self):
+        """Cenário 3: Testa a propriedade matemática de número diferente de zero elevado a zero."""
+        self.assertEqual(potencia(5, 0), 1)
+
+    def test_potencia_zero_elevado_a_zero(self):
+        """Cenário 4: Testa o caso de borda crítico de zero elevado a zero (convenção do Python)."""
+        self.assertEqual(potencia(0, 0), 1)
+
+    def test_potencia_expoente_negativo(self):
+        """Cenário 5: Testa expoente negativo, forçando o retorno de um tipo float."""
+        self.assertEqual(potencia(2, -2), 0.25)
+
+    def test_potencia_divisao_por_zero_indireta(self):
+        """Cenário 6: Testa se base zero com expoente negativo lança a exceção ZeroDivisionError."""
+        with self.assertRaises(ZeroDivisionError):
+            potencia(0, -1)
 
 if __name__ == "__main__":
     unittest.main()
